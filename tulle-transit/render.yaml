@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: tulle-transit
+    runtime: static
+    buildCommand: echo "No build needed - plain static site"
+    staticPublishPath: ./
+    headers:
+      - path: /models/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /vendor/*
+        name: Cache-Control
+        value: public, max-age=604800
